@@ -1,16 +1,18 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { AuthProvider } from './context/AuthContext';
+
+import AppProvider from './hooks/index';
 
 import GlobalStyle from './styles/global';
-import SignUp from './pages/SigUp/index';
+
+// import SignUp from './pages/SigUp/index';
 import SignIn from './pages/Signin/index';
 
 const App: React.FC = () => (
   <>
-    <AuthProvider>
+    <AppProvider>
       <SignIn />
-    </AuthProvider>
+    </AppProvider>
     <GlobalStyle />
   </>
 );
