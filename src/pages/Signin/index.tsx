@@ -48,7 +48,11 @@ const SignIn: React.FC = () => {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-        addToast();
+        addToast({
+          type: 'error',
+          title: 'Login incorreto',
+          description: 'Digite um e-mail válido',
+        });
       }
     },
     [signIn, addToast],
