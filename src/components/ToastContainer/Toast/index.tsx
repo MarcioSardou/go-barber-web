@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { useEffect } from 'react';
-
 import {
   FiAlertCircle,
   FiXCircle,
@@ -12,9 +12,10 @@ import { useToast, ToastMessage } from '../../../hooks/ToastContext';
 
 interface ToastProps {
   message: ToastMessage;
+  style: object;
 }
 
-const Toast: React.FC<ToastProps> = ({ message }) => {
+const Toast: React.FC<ToastProps> = ({ message, style }) => {
   const { removeToast } = useToast();
 
   const icons = {
@@ -32,8 +33,10 @@ const Toast: React.FC<ToastProps> = ({ message }) => {
       clearTimeout(timer);
     };
   }, [removeToast, message.id]);
+
   return (
     <Container
+      style={style}
       key={message.id}
       type={message.type}
       hasDescription={!!message.description}
